@@ -3,8 +3,8 @@ from aiogram import Bot, Dispatcher
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from captcha_bot.users_data import *
-from captcha_bot.config import BOT_TOKEN, USERS_DATA_FILE
-from captcha_bot.constants import BUTTONS_NUMBER, BUTTON_PREDICATE
+from captcha_bot import (BOT_TOKEN, USERS_DATA_FILE,
+                         BUTTONS_NUMBER, BUTTON_PREDICATE)
 
 bot = Bot(token=BOT_TOKEN)
 

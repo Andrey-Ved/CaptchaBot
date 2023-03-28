@@ -3,18 +3,17 @@ from datetime import datetime, timedelta
 from pytz import timezone
 from asyncio import sleep
 
-from captcha_bot.constants import (BAN_TIME, TIME_FOR_TEST,
-                                    BUTTONS_NUMBER, BUTTON_PREDICATE,
-                                    DIGIT_IN_WRITING,
-                                    OnlyReadPermissions,
-                                    SPEECHES)
-
-from captcha_bot.config import (RAILWAY_APP_NAME,
-                                 WEBHOOK_URL, WEBHOOK_PATH, WEBHOOK_URL,
-                                 WEBAPP_HOST, WEBAPP_PORT,
-                                 BOT_TOKEN,
-                                 WORKS_CHATS,
-                                 USERS_DATA_FILE)
+from captcha_bot import (BAN_TIME, TIME_FOR_TEST,
+                         BUTTONS_NUMBER, BUTTON_PREDICATE,
+                         DIGIT_IN_WRITING,
+                         OnlyReadPermissions,
+                         SPEECHES,
+                         RAILWAY_APP_NAME,
+                         WEBHOOK_URL, WEBHOOK_PATH, WEBHOOK_URL,
+                         WEBAPP_HOST, WEBAPP_PORT,
+                         BOT_TOKEN,
+                         WORKS_CHATS,
+                         USERS_DATA_FILE)
 
 
 def until_date():
