@@ -1,4 +1,4 @@
-# Captcha Bot  
+# CaptchaBot  
 
 telegram-bot (python, [aiogram](https://aiogram.dev/))
 
