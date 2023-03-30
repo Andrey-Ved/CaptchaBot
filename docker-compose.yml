@@ -2,28 +2,31 @@ version: '3.9'
 
 services:
 
-  captcha_bot:
-          container_name: CaptchaBot
-          image: captcha_bot
+    captcha_bot:
+        container_name: CaptchaBot
+        image: captcha_bot
 
-          build: .
+        build: .
 
-          environment:
-              - BOT_TOKEN=${BOT_TOKEN}
-              - CHAT_ID_1=${CHAT_ID_1}
-              - CHAT_ID_2=${CHAT_ID_2}
-              - USERS_DATA_FILE=${USERS_DATA_FILE}
+        environment:
+            - BOT_TOKEN=${BOT_TOKEN}
+            - CHAT_ID_1=${CHAT_ID_1}
+            - CHAT_ID_2=${CHAT_ID_2}
+            - CHAT_ID_3=${CHAT_ID_3}
+            - CHAT_ID_4=${CHAT_ID_4}
 
-          ports:
-              - "443:443"
+        ports:
+            - "443:443"
 
-          volumes:
+        volumes:
             - ./logs:/~/CaptchaBot/logs
+            - ./users:/~/CaptchaBot/users
 
-          restart: on-failure
+        restart: on-failure
 
 volumes:
-  logs:
+    logs:
+    users:
 
 
 # -------------------------------
@@ -31,7 +34,8 @@ volumes:
 # $ export BOT_TOKEN=<BOT_TOKEN>
 # $ export CHAT_ID_1=<CHAT_ID_1>
 # $ export CHAT_ID_2=<CHAT_ID_2>
-# $ export USERS_DATA_FILE=<USERS_DATA_FILE>
+# $ export CHAT_ID_3=<CHAT_ID_3>
+# $ export CHAT_ID_4=<CHAT_ID_4>
 # $ docker-compose up -d
 # -------------------------------
 # Stop lifted containers:
@@ -46,5 +50,6 @@ volumes:
 # Remove image:
 # $ docker rmi captcha_bot
 # -------------------------------
-# Clear logs:
+# Clear logs & users:
 # $ sudo rm -rf logs/*
+# $ sudo rm -rf users/*

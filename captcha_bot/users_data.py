@@ -1,4 +1,5 @@
 import json
+import logging
 
 
 class User:
@@ -8,14 +9,20 @@ class User:
         self.captcha = captcha
 
     def __str__(self):
-        return ' '.join(map(str, (self.verified,
-                                  self.added,
-                                  self.captcha)))
+        return ' '.join(
+            map(str, (
+                self.verified,
+                self.added,
+                self.captcha
+            ))
+        )
 
     def to_dict(self):
-        return {'verified': self.verified,
-                'added': self.added,
-                'captcha': self.captcha}
+        return {
+            'verified': self.verified,
+            'added': self.added,
+            'captcha': self.captcha
+        }
 
 
 class Users:
@@ -23,7 +30,7 @@ class Users:
         self.users = {}
 
     def __str__(self):
-        return '\n'.join((str(k) + ' ' + str(self.users[k])) for k in self.users)
+        return '\n'.join(f'{str(k)} {str(self.users[k])}' for k in self.users)
 
     def add(self, user_id, user_verified, user_added, user_captcha):
         self.users[user_id] = User(user_verified, user_added, user_captcha)
@@ -52,11 +59,14 @@ class UsersWithFile(Users):
                 users_json = json.load(file)
 
             for k in users_json:
-                self.users[int(k)] = User(users_json[k]['verified'],
-                                          users_json[k]['added'],
-                                          users_json[k]['captcha'])
-        except FileNotFoundError:
-            print(f'user data file was not found, we create a new one')
+                self.users[int(k)] = User(
+                    users_json[k]['verified'],
+                    users_json[k]['added'],
+                    users_json[k]['captcha']
+                )
+
+        except FileNotFoundError as e:
+            logging.info(e)
 
     def writing_to_file(self):
         data = {}

@@ -1,19 +1,10 @@
-from captcha_bot.dispatcher import bot, dp, doubtful_users, keyboard
-from datetime import datetime, timedelta
-from pytz import timezone
 from asyncio import sleep
+from datetime import datetime, timedelta
 
-from captcha_bot import (BAN_TIME, TIME_FOR_TEST,
-                         BUTTONS_NUMBER, BUTTON_PREDICATE,
-                         DIGIT_IN_WRITING,
-                         OnlyReadPermissions,
-                         SPEECHES,
-                         RAILWAY_APP_NAME,
-                         WEBHOOK_URL, WEBHOOK_PATH, WEBHOOK_URL,
-                         WEBAPP_HOST, WEBAPP_PORT,
-                         BOT_TOKEN,
-                         WORKS_CHATS,
-                         USERS_DATA_FILE)
+from captcha_bot import (
+    BAN_TIME, TIME_FOR_TEST, OnlyReadPermissions, SPEECHES, WORKS_CHATS
+)
+from captcha_bot.dispatcher import bot, doubtful_users
 
 
 def until_date():
@@ -35,9 +26,11 @@ async def deferred_verification(chat_id, test_message_id, user_id):
     if user_id not in doubtful_users:
         return
 
-    await bot.restrict_chat_member(chat_id=chat_id,
-                                   user_id=user_id,
-                                   permissions=OnlyReadPermissions,
-                                   until_date=until_date())
+    await bot.restrict_chat_member(
+        chat_id=chat_id,
+        user_id=user_id,
+        permissions=OnlyReadPermissions,
+        until_date=until_date()
+    )
 
     await bot.delete_message(chat_id, test_message_id)

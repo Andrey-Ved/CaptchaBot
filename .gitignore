@@ -162,6 +162,7 @@ fabric.properties
 output/
 tmpl/
 logs/
+users/
 tmpl.*
 *.env
 brief.*

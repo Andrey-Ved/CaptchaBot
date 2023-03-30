@@ -21,7 +21,8 @@ CMD ["python", "-m", "captcha_bot"]
 #    --env "BOT_TOKEN=<BOT_TOKEN>" \
 #    --env "CHAT_ID_1=<CHAT_ID_1>" \
 #    --env "CHAT_ID_2=<CHAT_ID_2>" \
-#    --env "USERS_DATA_FILE=<USERS_DATA_FILE>" \
+#    --env "CHAT_ID_3=<CHAT_ID_3>" \
+#    --env "CHAT_ID_4=<CHAT_ID_4>" \
 #    captcha_bot
 # -------------------------------
 # Stop running container:
