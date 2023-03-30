@@ -16,8 +16,13 @@ WEBHOOK_URL = f'{WEBHOOK_HOST}{WEBHOOK_PATH}'
 WEBAPP_HOST = '0.0.0.0'
 WEBAPP_PORT = os.getenv('PORT', default=8000)
 
-WORKS_CHATS = {os.getenv('CHAT_ID_1'): 'chat_id_1',
-               os.getenv('CHAT_ID_2'): 'chat_id_2'}
+MAX_CHATS_NUMBER = 10
+
+WORKS_CHATS = {}
+for i in range(MAX_CHATS_NUMBER):
+    chat_id = os.getenv('CHAT_ID_' + str(i))
+    if chat_id:
+        WORKS_CHATS[chat_id] = 'chat_id_' + str(i)
 
 USERS_DATA_FILE = os.getenv('USERS_DATA_FILE')
 
