@@ -1,0 +1,27 @@
+# Git
+.git
+.gitignore
+
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Byte-compiled / optimized / DLL files
+captcha_bot/__pycache__/
+
+# Distribution / packaging
+env/
+
+# Virtual environment
+.env
+env_dist
+
+# PyCharm
+.idea
+
+# user
+logs
+LICENSE
+Procfile
+README.md
