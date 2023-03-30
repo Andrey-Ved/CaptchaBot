@@ -22,7 +22,7 @@ WORKS_CHATS = {}
 for i in range(MAX_CHATS_NUMBER):
     chat_id = os.getenv('CHAT_ID_' + str(i))
     if chat_id:
-        WORKS_CHATS[int(chat_id)] = 'chat_id_' + str(i)
+        WORKS_CHATS[chat_id] = 'chat_id_' + str(i)
 
 USERS_DATA_FILE = os.getenv('USERS_DATA_FILE')
 
@@ -53,10 +53,10 @@ OnlyReadPermissions = types.ChatPermissions(can_send_messages=False,
                                             can_invite_users=False,
                                             can_pin_messages=False)
 
-SPEECHES = {'wrong chat id': 'брать чужих ботов без спроса очень не хорошо',
-            'not you': 'Не тебя проверяю',
-            'right': 'правильно',
-            'not right': 'неправильно, я тебя баню',
+SPEECHES = {'wrong chat id': 'Брать чужих ботов без спроса очень не хорошо.',
+            'not you': 'Не тебя проверяю!',
+            'right': 'Правильно!',
+            'not right': 'Неправильно, я тебя баню!',
             'greeting with riddle': (lambda name, number:
                                      f'Привет, {name}! Это анти-спам проверка. Если ты не бот, ' +
                                      f'нажми в течение {TIME_FOR_TEST} сек. кнопку c цифрой {number}')
