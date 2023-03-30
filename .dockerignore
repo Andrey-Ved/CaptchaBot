@@ -15,6 +15,7 @@ env/
 
 # Virtual environment
 .env
+env_dist
 
 # PyCharm
 .idea
