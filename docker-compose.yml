@@ -16,7 +16,7 @@ services:
             - CHAT_ID_4=${CHAT_ID_4}
 
         ports:
-            - "443:443"
+            - "8443:443"
 
         volumes:
             - ./logs:/~/CaptchaBot/logs
