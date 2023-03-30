@@ -3,10 +3,6 @@
 # This is your bot's token. Go to https://t.me/botfather to register your own bot. It's free!
 BOT_TOKEN = 12345:AaBbCcDdEeFfGgHhIiJjKk
 
-RAILWAY_APP_NAME = RaIlWaY_ApP_NaMe
-
-PORT = 8000
-
 # ID of bot's main group, where messages are checked
 CHAT_ID_1 = -100987654321
 CHAT_ID_2 = -100987654321
