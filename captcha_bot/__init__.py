@@ -22,7 +22,7 @@ WORKS_CHATS = {}
 for i in range(MAX_CHATS_NUMBER):
     chat_id = os.getenv('CHAT_ID_' + str(i))
     if chat_id:
-        WORKS_CHATS[chat_id] = 'chat_id_' + str(i)
+        WORKS_CHATS[int(chat_id)] = 'chat_id_' + str(i)
 
 USERS_DATA_FILE = os.getenv('USERS_DATA_FILE')
 
