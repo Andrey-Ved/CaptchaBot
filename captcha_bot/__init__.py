@@ -15,9 +15,9 @@ WORKS_CHATS = {}
 for i in range(MAX_CHATS_NUMBER):
     chat_id = os.getenv(f'CHAT_ID_{str(i)}')
     if chat_id:
-        WORKS_CHATS[int(chat_id)] = 'chat_id_' + str(i)
+        WORKS_CHATS[int(chat_id)] = f'chat_id_{str(i)}'
 
-USERS_DATA_FILE = 'logs/users.json'
+USERS_DATA_FILE = 'users/users.json'
 
 BAN_TIME = 30  # minutes
 TIME_FOR_TEST = 30  # seconds
@@ -33,7 +33,7 @@ DIGIT_IN_WRITING = {
     '3': 'ТРИ',
     '4': 'ЧЕТЫРЕ',
     '5': 'ПЯТЬ',
-    '0': 'НОЛЬ'
+    '0': 'НОЛЬ',
 }
 
 for BUTTON in range(BUTTONS_NUMBER):
@@ -57,7 +57,9 @@ SPEECHES = {
     'not right': 'Неправильно, я тебя баню!',
     'greeting with riddle': (
         lambda name, number:
-        f'Привет, {name}! Это анти-спам проверка. Если ты не бот, '
-        + f'нажми в течение {TIME_FOR_TEST} сек. кнопку c цифрой {number}'
+        (f'Привет, {name}! '
+         'Это анти-спам проверка. '
+         f'Если ты не бот, нажми в течение {TIME_FOR_TEST} '
+         f'сек. кнопку c цифрой {number}')
     )
 }

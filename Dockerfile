@@ -9,6 +9,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r ./requirements.txt
 
 COPY captcha_bot ./captcha_bot
+COPY users ./users
 
 CMD ["python", "-m", "captcha_bot"]
 

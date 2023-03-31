@@ -22,7 +22,8 @@ env_dist
 
 # user
 logs
-users
 LICENSE
 Procfile
 README.md
+brief.txt
+runtime.txt
