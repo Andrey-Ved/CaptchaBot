@@ -27,12 +27,12 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.CAPTCHA_BOT_SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: Run command on remote server
-        uses: D3rHase/ssh-command-action@v0.2.2
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.CAPTCHA_BOT_SSH_HOST }}
-          user: ${{ secrets.CAPTCHA_BOT_SSH_USER }}
-          private_key: ${{ secrets.CAPTCHA_BOT_SSH_PRIVATE_KEY }}
-          command: |
+          username: ${{ secrets.CAPTCHA_BOT_SSH_USER }}
+          key: ${{ secrets.CAPTCHA_BOT_SSH_PRIVATE_KEY }}
+          script: |
             echo '--- START WORK ON REMOTE SERVER ---';
             cd CaptchaBot;
             echo '--- LIST OF FILES ---';
