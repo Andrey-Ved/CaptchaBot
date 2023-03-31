@@ -8,8 +8,6 @@ from captcha_bot.handlers import *
 
 
 def main():
-    Path(USERS_DATA_FILE).parent.mkdir(parents=True, exist_ok=True)
-
     log_name = f'logs/{datetime.now().strftime("%Y-%m-%d")}.log'
     Path(log_name).parent.mkdir(parents=True, exist_ok=True)
 

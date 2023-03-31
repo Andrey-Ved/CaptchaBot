@@ -18,7 +18,7 @@ async def handler_check_message(message):
         return
 
     if message.from_user.id in doubtful_users:
-        forwarded = bool(getattr(message, "forward_date"))
+        forwarded = bool(getattr(message, 'forward_date'))
         with_links = False
 
         for entity in message.entities:

@@ -1,4 +1,4 @@
-aiogram~=2.25.1
+aiogram==2.25.1
 pytz==2023.3
 python-dotenv==1.0.0
 asynctest==0.13.0

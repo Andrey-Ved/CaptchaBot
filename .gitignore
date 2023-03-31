@@ -161,8 +161,8 @@ fabric.properties
 # user
 output/
 tmpl/
+tmpl.*
+brief.*
+*.env
 logs/
 users/
-tmpl.*
-*.env
-brief.*
