@@ -35,10 +35,17 @@ jobs:
           script: |
             echo '--- START WORK ON REMOTE SERVER ---';
             cd CaptchaBot;
+            echo '--- EXPORT VARIABLES ---';
+            export BOT_TOKEN=${{ secrets.CAPTCHA_BOT_TOKEN }};
+            export CHAT_ID_1=${{ vars.CHAT_ID_1 }}
+            export CHAT_ID_2=${{ vars.CHAT_ID_2 }}
+            export CHAT_ID_3=${{ vars.CHAT_ID_3 }}
+            export CHAT_ID_4=${{ vars.CHAT_ID_4 }}
             echo '--- LIST OF FILES ---';
             ls -al;
             echo '--- GIT INFORMATION ---'
             git checkout main;
+            echo '--- GIT PULL ---'
             git pull;
             echo '--- DOCKER OPERATIONS ---';
             docker-compose --file docker-compose.yml down;
@@ -46,11 +53,6 @@ jobs:
             echo '--- LIST OF DOCKER CONTAINERS ---';
             ps -a;
             echo '--- UP CONTAINER ---';
-            export BOT_TOKEN=${{ secrets.CAPTCHA_BOT_TOKEN }};
-            export CHAT_ID_1=${{ vars.CHAT_ID_1 }}
-            export CHAT_ID_2=${{ vars.CHAT_ID_2 }}
-            export CHAT_ID_3=${{ vars.CHAT_ID_3 }}
-            export CHAT_ID_4=${{ vars.CHAT_ID_4 }}
             docker-compose --file docker-compose.yml up -d;
             echo '--- DOCKER PRUNE ---';
             docker system prune --all --force;
