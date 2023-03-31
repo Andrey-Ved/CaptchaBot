@@ -43,18 +43,14 @@ jobs:
             export CHAT_ID_4=${{ vars.CHAT_ID_4 }}
             echo '--- LIST OF FILES ---';
             ls -al;
-            echo '--- GIT INFORMATION ---'
-            git checkout main;
             echo '--- GIT PULL ---'
             git pull;
             echo '--- DOCKER OPERATIONS ---';
-            docker-compose --file docker-compose.yml down;
+            docker-compose down;
             docker rmi captcha_bot;
             echo '--- LIST OF DOCKER CONTAINERS ---';
-            ps -a;
+            docker ps -a;
             echo '--- UP CONTAINER ---';
-            docker-compose --file docker-compose.yml up -d;
-            echo '--- DOCKER PRUNE ---';
-            docker system prune --all --force;
+            docker-compose up -d;
             echo '--- LIST OF DOCKER CONTAINERS ---';
-            ps -a;
+            docker ps -a;
