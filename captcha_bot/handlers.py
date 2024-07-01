@@ -41,25 +41,26 @@ async def handler_new_member(message):
     if not await check_chats(message):
         return
 
-    number_captcha = str(randint(0, 5))
-    number_captcha_in_writing = DIGIT_IN_WRITING[number_captcha]
+    async for new_chat_member in message.new_chat_members:
+        number_captcha = str(randint(0, 5))
+        number_captcha_in_writing = DIGIT_IN_WRITING[number_captcha]
 
-    text = SPEECHES['greeting with riddle'](
-        name=message.new_chat_members[0].first_name,
-        number=number_captcha_in_writing
-    )
+        text = SPEECHES['greeting with riddle'](
+            name=new_chat_member.first_name,
+            number=number_captcha_in_writing
+        )
 
-    current_user = int(message.new_chat_members[0].id)
-    doubtful_users[current_user] = False, str(datetime.now()), number_captcha
+        current_user = int(new_chat_member.id)
+        doubtful_users[current_user] = False, str(datetime.now()), number_captcha
 
-    test_message = await message.answer(text=text, reply_markup=keyboard)
+        test_message = await message.answer(text=text, reply_markup=keyboard)
 
-    await deferred_verification(
-        message.chat.id,
-        test_message.message_id, current_user
-    )
+        await deferred_verification(
+            message.chat.id,
+            test_message.message_id, current_user
+        )
 
-    await bot.delete_message(message.chat.id, message.message_id)
+        await bot.delete_message(message.chat.id, message.message_id)
 
 
 @dp.callback_query_handler(Text(startswith=BUTTON_PREDICATE))
